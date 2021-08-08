@@ -5,15 +5,15 @@ class Employee {
     this.email = email;
     }
     getName() {
-        console.log(`Employee Name: ${this.name} `);
+        return this.name;
     }
 
     getId() {
-        console.log(`Employee ID: ${this.id} `);
+        return this.id;
     }
 
     getEmail() {
-        console.log(`Employee Email: ${this.email} `);
+        return this.email;
     }
 
     getRole() {
