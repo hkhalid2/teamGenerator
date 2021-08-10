@@ -15,10 +15,10 @@ Overall this project taught me specifically how to write/test various tests usin
 ## Installation
 Node was required to be installed as well as inquirer and jest dependancies.
 Inquirer for taking user input in command line while jest was used to test class properties/methods. 
-``npm init -y
-  node install -y
-  node install inquirer
-  node install jest``
+``npm init -y``
+``node install -y``
+``node install inquirer``
+``node install jest``
 
 ## Usage
 ``node index.js``
