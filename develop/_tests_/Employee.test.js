@@ -1,5 +1,6 @@
 const Employee = require('../lib/Employee');
 
+//tests the employee classes methods/properties
 describe('Employee', () => {
     it('Should return Employee Name: Billybob', () => {
         const check = "Billybob";

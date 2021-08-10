@@ -1,5 +1,5 @@
 const Employee = require('./Employee');
-
+//used extend/require in order to add Employee's properties/methods
 class Intern extends Employee {
     constructor (name, id, email, school){
         super(name, id, email);

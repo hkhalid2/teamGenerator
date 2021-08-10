@@ -1,7 +1,8 @@
 const Intern = require('../lib/Intern');
 
-
-describe('Employee', () => {
+//various test's that test the Intern class's properties/methods
+//as well as the Employee ones it should have access to
+describe('Intern', () => {
     it('Should return Employee Name: Billybob', () => {
         const check = "Billybob";
         const testEmployee = new Intern("Billybob", "12345", "billybob@gmail.com", "billybobgithub");

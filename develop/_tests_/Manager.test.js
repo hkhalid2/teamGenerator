@@ -1,7 +1,8 @@
 const Manager = require('../lib/Manager');
 
-
-describe('Employee', () => {
+//various test's that test the manager class's properties/methods
+//as well as the Employee ones it should have access to
+describe('Manager', () => {
     it('Should return Employee Name: Django', () => {
         const check = "Django";
         const testEmployee = new Manager("Django", "12345", "Django@gmail.com", "90210");

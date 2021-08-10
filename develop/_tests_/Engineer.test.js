@@ -1,6 +1,8 @@
 const Engineer = require('../lib/Engineer');
 
-describe('Employee', () => {
+//various test's that test the Engineer class's properties/methods
+//as well as the Employee ones it should have access to
+describe('Engineer', () => {
     it('Should return Employee Name: Billybob', () => {
         const check = "Billybob";
         const testEmployee = new Engineer("Billybob", "12345", "billybob@gmail.com", "billybobgithub");

@@ -5,8 +5,10 @@ const util = require('util');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+//empty array to add html elements of team members to
 let team = [];
 
+//prompt for manager questions
 const ManagerQuestions = () => {
     return inquirer.prompt([
 
@@ -34,25 +36,26 @@ const ManagerQuestions = () => {
             message: "What is the Manager's officeNumber?",
         },
     ])
-        //adds the only Manager class team member to team array
+        //adds the only Manager team member's HTML to team array
         .then((answers) => {
-
-            let manager = `<div class="col-3 d-flex justify-content-center">
+            let manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
+            let managerHTML = `<div class="col-3 d-flex justify-content-center">
             <div class="card bg-light" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">${answers.name}</h5>
+                  <h5 class="card-title">${manager.name}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
-                  <p class="list-group-item">ID: ${answers.id}</p>
-                  <p class="list-group-item">Email: <a href="mailto:${answers.email}?subject= subject text" class="card-link">${answers.email}</a></p>
-                  <p class="list-group-item">Office Number: ${answers.officeNumber}</p>
+                  <p class="list-group-item">ID: ${manager.id}</p>
+                  <p class="list-group-item">Email: <a href="mailto:${manager.email}?subject= subject text" class="card-link">${manager.email}</a></p>
+                  <p class="list-group-item">Office Number: ${manager.officeNumber}</p>
                 </div>
             </div>  
         </div>`;
 
-            team.push(manager);
+            team.push(managerHTML);
         })
 };
 
+//prompt for Engineer questions
 const EngineerQuestions = () => {
     return inquirer.prompt([
 
@@ -80,22 +83,22 @@ const EngineerQuestions = () => {
             message: "What is the Engineer's github?",
         },
     ])
-        //adds new Engineer class team member to team array and sends user back to menu
+        //adds new Engineer team member's HTML to team array and sends user back to menu
         .then((answers) => {
-
-            let engineer = `<div class="col-3 d-flex justify-content-center">
+            let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            let engineerHTML = `<div class="col-3 d-flex justify-content-center">
             <div class="card bg-light" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">${answers.name}</h5>
+                  <h5 class="card-title">${engineer.name}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
-                  <p class="list-group-item">ID: ${answers.id}</p>
-                  <p class="list-group-item">Email: <a href="mailto:${answers.email}?subject= subject text" class="card-link">${answers.email}</a></p>
-                  <p class="list-group-item">Github: <a href="https://github.com/${answers.github}" class="card-link">${answers.github}</a></p>
+                  <p class="list-group-item">ID: ${engineer.id}</p>
+                  <p class="list-group-item">Email: <a href="mailto:${engineer.email}?subject= subject text" class="card-link">${engineer.email}</a></p>
+                  <p class="list-group-item">Github: <a href="https://github.com/${engineer.github}" class="card-link">${engineer.github}</a></p>
                 </div>
             </div>  
         </div>`;
 
-            team.push(engineer);
+            team.push(engineerHTML);
             createTeam();
         })
 };
@@ -127,26 +130,28 @@ const InternQuestions = () => {
             message: "What school is the Intern attending?",
         },
     ])
-        //adds new Intern class team member to team array and sends user back to menu
+        //adds new Intern team member's HTML to team array and sends user back to menu
         .then((answers) => {
-
-            let intern = `<div class="col-3 d-flex justify-content-center">
+            let intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+            let internHTML = `<div class="col-3 d-flex justify-content-center">
             <div class="card bg-light" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">${answers.name}</h5>
+                  <h5 class="card-title">${intern.name}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
-                  <p class="list-group-item">ID: ${answers.id}</p>
-                  <p class="list-group-item">Email: <a href="mailto:${answers.email}?subject= subject text" class="card-link">${answers.email}</a></p>
-                  <p class="list-group-item">School: ${answers.school}</p>
+                  <p class="list-group-item">ID: ${intern.id}</p>
+                  <p class="list-group-item">Email: <a href="mailto:${intern.email}?subject= subject text" class="card-link">${intern.email}</a></p>
+                  <p class="list-group-item">School: ${intern.school}</p>
                 </div>
             </div>  
         </div>`;
 
-            team.push(intern);
+            team.push(internHTML);
             createTeam();
         })
 };
 
+//prompt used by manager to add Intern or engineer. If no more needed, 
+//exits menu, generates html using team members and ends application
 const createTeam = () => {
     return inquirer.prompt([
         {
@@ -161,6 +166,7 @@ const createTeam = () => {
             initial: 1
         },
     ])
+        //runs corresponding Questions or ends application/generates HTML based on user's menu choice
         .then((answer) => {
             if (answer.menu == 'Intern') {
                 InternQuestions();
@@ -178,6 +184,7 @@ const createTeam = () => {
 
 };
 
+//skeleton for HTML
 const GenerateHTML = (team) => 
     `<!DOCTYPE html>
     <html lang="en">
