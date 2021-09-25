@@ -20,6 +20,13 @@ Inquirer for taking user input in command line while jest was used to test class
 ``node install inquirer``
 ``node install jest``
 
+## Technologies Used
+* Jest
+* Inquirer
+* Node.js
+* CLI
+* HTML
+
 ## Usage
 ``node index.js``
 ``npm test``
@@ -38,7 +45,9 @@ MIT License
 ## Badges
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Screenshots
+## Link to Deployed App
+Not Applicable since this application runs in the commandline. Instead please view Demo Video and screenshots below to see functioning.
+
 ### Demo Video
 https://drive.google.com/file/d/1ZxfI7wALHMjdfJaHF8_O_J6zaqInK_rJ/view?usp=sharing
 
